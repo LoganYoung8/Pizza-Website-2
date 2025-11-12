@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order - Riverside Panther Pizza</title>
+<link rel="stylesheet" href="stylesheet7.css">
+<link rel="icon" type="image/png" href="panther-logo.png">
+</head>
+<body>
+
+<header>
+<img src="panther-logo.png" alt="Panther Pizza Logo" class="logo">
+<h1>Order Your Meal</h1>
+<p>Fast • Fresh • Fierce Flavor</p>
+</header>
+
+<nav>
+<a href="file:///C:/Users/lyoung/Documents/Web%20Page%20Design/14%20-%20Chat%20GPT/Index.html">Home</a> 
+<a href="file:///C:/Users/lyoung/Documents/Web%20Page%20Design/14%20-%20Chat%20GPT/menu.html" class="active">Menu</a>
+<a href="file:///C:/Users/lyoung/Documents/Web%20Page%20Design/14%20-%20Chat%20GPT/order.html">Order</a>
+</nav>
+
+<section id="order-form">
+<h2>Place Your Order</h2>
+
+<form action="#" method="post">
+
+<h3>Your Information</h3>
+<label>Name:</label>
+<input type="text" required>
+
+<label>Email:</label>
+<input type="email" required>
+
+<label>Phone Number:</label>
+<input type="tel" required>
+
+<h3>Select Your Food</h3>
+
+<label>Item:</label>
+<select id="foodSelect" required>
+  <option value="">-- Select Item --</option>
+  <option value="Pizza">Margherita Pizza — $12</option>
+  <option value="Pepperoni Pizza">Pepperoni Pizza — $13</option>
+  <option value="BBQ Chicken Pizza">BBQ Chicken Pizza — $14</option>
+  <option value="Supreme Pizza">Supreme Pizza — $15</option>
+  <option value="Wings">Chicken Wings (10pc) — $11</option>
+  <option value="Pasta Alfredo">Pasta Alfredo — $10</option>
+  <option value="Pasta Marinara">Pasta Marinara — $10</option>
+</select>
+
+<!-- Pizza Size -->
+<div id="pizzaSizeBox" style="display:none;">
+<label>Pizza Size:</label>
+<select>
+  <option value="Small">Small</option>
+  <option value="Medium">Medium (+$2)</option>
+  <option value="Large">Large (+$4)</option>
+</select>
+</div>
+
+<!-- Wing Flavor -->
+<div id="wingFlavorBox" style="display:none;">
+<label>Wing Flavor:</label>
+<select>
+  <option value="Buffalo">Buffalo</option>
+  <option value="BBQ">BBQ</option>
+  <option value="Garlic Parmesan">Garlic Parmesan</option>
+  <option value="Lemon Pepper">Lemon Pepper</option>
+</select>
+</div>
+
+<!-- Pizza Quantity -->
+<div id="pizzaQtyBox" style="display:none;">
+<label>Number of Pizzas:</label>
+<input type="number" min="1" max="10">
+</div>
+
+<!-- Meal Quantity -->
+<div id="mealQtyBox">
+<label>Quantity:</label>
+<input type="number" min="1" max="10" required>
+</div>
+
+<h3>Extras</h3>
+
+<label>Breadsticks:</label>
+<select>
+  <option value="">-- Select Breadsticks --</option>
+  <option value="Classic Breadsticks">Classic Breadsticks — $4</option>
+  <option value="Cheesy Breadsticks">Cheesy Breadsticks — $5</option>
+  <option value="Garlic Parmesan Breadsticks">Garlic Parmesan Breadsticks — $5</option>
+</select>
+<br><br>
+
+<label>Soda:</label>
+<select>
+  <option value="">-- Select Soda --</option>
+  <option value="Coke">Coke — $2</option>
+  <option value="Diet Coke">Diet Coke — $2</option>
+  <option value="Sprite">Sprite — $2</option>
+  <option value="Root Beer">Root Beer — $2</option>
+</select>
+<br><br>
+
+<label><input type="checkbox"> Extra Cheese — $1</label><br>
+<label><input type="checkbox"> Extra Sauce — $1</label><br><br>
+
+<button type="submit">Submit Order</button>
+
+</form>
+</section>
+
+<footer>
+<p>&copy; 2025 Riverside Panther Pizza | All Rights Reserved</p>
+</footer>
+
+<script>
+const foodSelect = document.getElementById("foodSelect");
+const pizzaSize = document.getElementById("pizzaSizeBox");
+const wingFlavor = document.getElementById("wingFlavorBox");
+const pizzaQty = document.getElementById("pizzaQtyBox");
+const mealQty = document.getElementById("mealQtyBox");
+
+foodSelect.addEventListener("change", function() {
+  const food = this.value;
+
+  if (food.includes("Pizza")) {
+    pizzaSize.style.display = "block";
+    pizzaQty.style.display = "block";
+    wingFlavor.style.display = "none";
+    mealQty.style.display = "none";
+  } 
+  else if (food === "Wings") {
+    wingFlavor.style.display = "block";
+    mealQty.style.display = "block";
+    pizzaSize.style.display = "none";
+    pizzaQty.style.display = "none";
+  } 
+  else {
+    mealQty.style.display = "block";
+    pizzaSize.style.display = "none";
+    pizzaQty.style.display = "none";
+    wingFlavor.style.display = "none";
+  }
+});
+</script>
+
+</body>
+</html>
